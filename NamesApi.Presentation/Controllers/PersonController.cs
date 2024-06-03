@@ -5,7 +5,7 @@ using NamesAPI.Domain;
 namespace NamesAPI.Presentation.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/names")] 
     public class PersonController : ControllerBase
     {
         private readonly IPersonService _personService;
