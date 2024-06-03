@@ -10,7 +10,7 @@ Once you have the prerequisites, follow these steps:
 
 1. Clone the repository.
    ```bash
-   git clone 
+   git clone https://github.com/VelazquezBelen/NamesApi.git
    ```
 
 2. Navigate to the project NamesApi.Presentation.
