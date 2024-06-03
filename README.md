@@ -18,7 +18,7 @@ Once you have the prerequisites, follow these steps:
    cd NamesApi/NamesApi.Presentation
    ```
 
-3. Build and run the project with the following command.
+3. Build and run the solution with the following command.
    ```bash
    dotnet run
    ```
