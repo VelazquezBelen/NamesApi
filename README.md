@@ -23,4 +23,4 @@ Once you have the prerequisites, follow these steps:
    dotnet run
    ```
 
-4. Launch https://localhost:7062/swagger/index.html in your browser to interact with the API.
+4. Launch http://localhost:5182/swagger/index.html in your browser to interact with the API.
