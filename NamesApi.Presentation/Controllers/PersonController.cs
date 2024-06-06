@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NamesAPI.Application;
 using NamesAPI.Domain;
+using System.Text.Json;
 
 namespace NamesAPI.Presentation.Controllers
 {
@@ -20,18 +21,18 @@ namespace NamesAPI.Presentation.Controllers
         {
             if (!ModelState.IsValid)
             {
-                _logger.LogInformation("Bad Request for {filters}", filters);
+                _logger.LogInformation("Bad Request for {filters}", JsonSerializer.Serialize(filters));
                 return BadRequest(ModelState);
             }
             try
             {
                 var personList = await _personService.GetByFilter(filters);
-                _logger.LogInformation("The request was successful for {filters}", filters);
+                _logger.LogInformation("The request was successful for {filters}", JsonSerializer.Serialize(filters));
                 return Ok(personList);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while processing the request for {filters}", filters);
+                _logger.LogError(ex, "An error occurred while processing the request for {filters}", JsonSerializer.Serialize(filters));
                 return StatusCode(500, ex.Message);
             }
         }

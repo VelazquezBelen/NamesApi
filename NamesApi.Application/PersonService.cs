@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using NamesAPI.Domain;
+using System.Text.Json;
 
 namespace NamesAPI.Application
 {
@@ -28,12 +29,12 @@ namespace NamesAPI.Application
                 {
                     personList = personList.Where(person => person.Name.StartsWith(filters.NameStartsWith, StringComparison.InvariantCultureIgnoreCase));
                 }
-                _logger.LogInformation("The data was successfully obtained for the filters {filters}", filters);
+                _logger.LogInformation("The data was successfully obtained for the filters {filters}", JsonSerializer.Serialize(filters));
                 return personList;
             } 
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while searching for the data for {filters}", filters);
+                _logger.LogError(ex, "An error occurred while searching for the data for {filters}", JsonSerializer.Serialize(filters));
                 throw;
             }        
         }
